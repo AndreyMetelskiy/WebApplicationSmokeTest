@@ -1,16 +1,14 @@
 import com.codeborne.selenide.Configuration;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.open;
 
 public class AuthorizationPageTest {
     AuthorizationPage authorizationPage = new AuthorizationPage();
 
-    @BeforeClass
+    @BeforeAll
     public static void keeper() {
         //URL удаленного веб-драйвера
         Configuration.remote = "http://selenoid.intexsoft.by:4444/wd/hub/";
@@ -32,27 +30,24 @@ public class AuthorizationPageTest {
         open("/");
     }
 
-    @Before
-    public void before() {
-        open("/");
-        System.out.println("START TEST");
-    }
-
     @Test
     public void buttonLoginTest() { //Теси доступности кнопки log in
+        open("/");
         authorizationPage.buttonLoginAvailability();
     }
 
     @Test
     public void userAuthorizationTest() { // Тест на проверку возможности авторизации пользователя
+        open("/");
         authorizationPage.fillingName();
         authorizationPage.fillingPassword();
         authorizationPage.clickLoginBtn();
         authorizationPage.employeesCheck();
     }
 
-    @Test
+   @Test
     public void userAuthorizationTest2() { // Тест на проверку возможности авторизации пользователя
+       open("/");
         authorizationPage.fillingName();
         authorizationPage.fillingPassword();
         authorizationPage.urlCheck();
@@ -60,6 +55,7 @@ public class AuthorizationPageTest {
 
     @Test
     public void validationMessagePasswordTest() { // Тест на проверку появления валидационного сообщения при вводе некорректного пароля
+        open("/");
         authorizationPage.fillingName();
         authorizationPage.fillingIncorrectPassword();
         authorizationPage.clickLoginBtn();
@@ -68,6 +64,7 @@ public class AuthorizationPageTest {
 
     @Test
     public void validationMessageNameTest() { // Тест на проверку появления валидационного сообщения при вводе некорректного имени
+        open("/");
         authorizationPage.fillingIncorrectName();
         authorizationPage.fillingPassword();
         authorizationPage.clickLoginBtn();
@@ -76,31 +73,37 @@ public class AuthorizationPageTest {
 
     @Test
     public void eKeeperLinkTestEnabled() { //Тестирование доступности ссылки на странице авторизации
+        open("/");
         authorizationPage.eKeeperLinkEnabled();
     }
 
     @Test
     public void eKeeperLinkTestCorrect() { //Тестирование корректности ссылки на странице авторизации
+        open("/");
         authorizationPage.eKeeperLinkCorrect();
     }
 
     @Test
     public void eKeeperLinkTestClick() { //Тестирование кликабельности ссылки на странице авторизации
+        open("/");
         authorizationPage.eKeeperLinkClick();
     }
 
     @Test
     public void hamburgerMenuAvailability() { //Тестирование доступности кнопки меню на странице авторизации
+        open("/");
         authorizationPage.hamburgerMenuAvailability();
     }
 
     @Test
     public void hamburgerMenuClick() { //Тестирование кликабельности кнопки меню на странице авторизации
+        open("/");
         authorizationPage.hamburgerMenuClick();
     }
 
     @Test
     public void hamburgerMenuWork() { //Тестирование работы кнопки меню на странице авторизации
+        open("/");
         authorizationPage.containerOpen();
         authorizationPage.hamburgerMenuClick();
         authorizationPage.containerClose();
