@@ -1,11 +1,13 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
-import org.junit.Assert;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverRunner.*;
+
+import static com.codeborne.selenide.Condition.href;
+import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.element;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class AuthorizationPage {
     {
@@ -72,7 +74,7 @@ public class AuthorizationPage {
         expertiseKeeperLink.click();
         String a = "https://expkeeper.intexsoft.by/";
         String pageUrl1 = getWebDriver().getCurrentUrl();
-        Assert.assertEquals(a, pageUrl1);
+        assertEquals(a, pageUrl1);
     }
 
     public void containerOpen() { //Проверяем открытие меню
@@ -91,7 +93,7 @@ public class AuthorizationPage {
         loginButton.hover().click();
         String a = "https://expkeeper.intexsoft.by/employee";
         String pageUrl = getWebDriver().getCurrentUrl();
-        Assert.assertEquals(a, pageUrl);
+        assertEquals(a, pageUrl);
     }
 }
 
